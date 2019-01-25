@@ -5,6 +5,7 @@ $(document).ready(function() {
     $(".guys, p").css("visibility", "hidden");
     $(".selector").css("visibility","hidden");
     $("td").css("visibility", "visible");
+    $("button").css("visibility", "visible");
     aiCo = "black";
     huCo = "white";
     console.log("white");
@@ -15,6 +16,7 @@ $(document).ready(function() {
     $(".guys, p").css("visibility", "hidden");
     $(".selector").css("visibility","hidden");
     $("td").css("visibility", "visible");
+    $("button").css("visibility", "visible");
     console.log("black");
     
      hu1Co = "white";
