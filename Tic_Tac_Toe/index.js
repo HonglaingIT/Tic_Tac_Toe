@@ -68,14 +68,14 @@ function move(element, player, color) {
     if (winning(board, player)) {
       setTimeout(function() {
         alert("YOU WIN PLAYER "+color);
-        resetAll();
+        reset();
       }, 000);
       return;
     } else if (round > 8) {
       setTimeout(function() {
         alert("TIE");
         if(gameStyle=="PVP"){
-        resetAll();}
+        reset();}
         else 
           reset();
       }, 000);
@@ -83,6 +83,7 @@ function move(element, player, color) {
     } else {
       
       console.log('fuckxkckckckcck',gameStyle);
+      console.log('rounds' , round);
       if (gameStyle=="PVC_GOD"){
       round++;
       var index = minimax(board, aiPlayer).index;
@@ -90,17 +91,92 @@ function move(element, player, color) {
       $(selector).css("background-color", aiCo);
       board[index] = aiPlayer;
       console.log(board);
-      console.log(index);}
+      console.log(index);
+    }
 
-     if (gameStyle=="PVC_EASY"){
-        round++;
-        var ava = avail(board);
-        var index = ava[Math.floor(Math.random() * ava.length)]; 
-        var selector = "#" + index;
+     else if (gameStyle=="PVC_EASY"){
+       round++;
+       console.log('rounds' , round);
+        var index;
+        if (winningPromt(board,huPlayer)){
+          if (board[0] == huPlayer && board[1] == huPlayer &&board[2]==2){
+            index = 2;
+          }
+          else if (board[0] == huPlayer && board[2] == huPlayer &&board[1]==1){
+            index = 1;
+          }
+          else if (board[0] == huPlayer && board[3] == huPlayer &&board[6]==6){
+            index = 6;
+          }else if (board[0] == huPlayer && board[4] == huPlayer &&board[8]==8){
+            index = 8;
+          }else if (board[0] == huPlayer && board[6] == huPlayer &&board[3]==3){
+            index = 3;
+          }else if (board[0] == huPlayer && board[8] == huPlayer &&board[1]==1){
+            index = 4;
+          }
+
+          else if (board[1] == huPlayer && board[2] == huPlayer &&board[0]==0){
+            index = 0;
+          }else if (board[1] == huPlayer && board[2] == huPlayer &&board[0]==0){
+            index = 0;
+          }else if (board[1] == huPlayer && board[2] == huPlayer &&board[0]==0){
+            index = 0;
+          }
+         
+          else if (board[2] == huPlayer && board[4] == huPlayer &&board[6]==6){
+            index = 6;
+          }
+          else if (board[2] == huPlayer && board[5] == huPlayer &&board[8]==8){
+            index = 8;
+          }else if (board[2] == huPlayer && board[6] == huPlayer &&board[4]==4){
+            index = 4;
+          }else if (board[2] == huPlayer && board[8] == huPlayer &&board[5]==5){
+            index = 5;
+          }
+          
+          else if (board[3] == huPlayer && board[4] == huPlayer &&board[5]==5){
+            index = 5;
+          } else if (board[3] == huPlayer && board[5] == huPlayer &&board[4]==4){
+            index = 4;
+          } else if (board[3] == huPlayer && board[6] == huPlayer &&board[0]==0){
+            index = 0;
+          } 
+
+          else if (board[4] == huPlayer && board[5] == huPlayer &&board[3]==3){
+            index = 3;
+          } else if (board[4] == huPlayer && board[6] == huPlayer &&board[2]==2){
+            index = 2;
+          } else if (board[4] == huPlayer && board[7] == huPlayer &&board[1]==1){
+            index = 1;
+          } else if (board[4] == huPlayer && board[8] == huPlayer &&board[0]==0){
+            index = 0;
+          } 
+
+          else if (board[5] == huPlayer && board[8] == huPlayer &&board[2]==2){
+            index = 2;
+          }
+
+          else if (board[6] == huPlayer && board[8] == huPlayer &&board[7]==7){
+            index = 7;
+          }else if (board[6] == huPlayer && board[7] == huPlayer &&board[8]==8){
+            index = 8;
+          }
+
+          else if (board[7] == huPlayer && board[8] == huPlayer &&board[6]==6){
+            index = 6;
+          }
+
+        }else {
+            var ava = avail(board);
+           index = ava[Math.floor(Math.random() * ava.length)]; 
+          }
+      var selector = "#" + index;
       $(selector).css("background-color", aiCo);
       board[index] = aiPlayer;
+      console.log('available:',ava);
       console.log(board);
       console.log(index);
+     
       }
       
       if (winning(board, aiPlayer)) {
@@ -122,12 +198,10 @@ function move(element, player, color) {
 }
 function resetAll() {
   location.reload();
-  // round = 0;
-  // board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-  // $("td").css("background-color", "transparent");
 }
 function reset() {
   round = 0;
+  moveN=0;
   board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   $("td").css("background-color", "transparent");
 }
@@ -205,6 +279,45 @@ function winning(board, player) {
     (board[2] == player && board[5] == player && board[8] == player) ||
     (board[0] == player && board[4] == player && board[8] == player) ||
     (board[2] == player && board[4] == player && board[6] == player)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+function winningPromt(board, player) {
+  if (
+    (board[0] == player && board[1] == player )||
+    (board[0] == player && board[2] == player )||
+    (board[0] == player && board[3] == player )||
+    (board[0] == player && board[4] == player )||
+    (board[0] == player && board[6] == player )||
+    (board[0] == player && board[8] == player )||
+
+    (board[1] == player && board[2] == player )||
+    (board[1] == player && board[4] == player )||
+    (board[1] == player && board[7] == player )||
+
+    (board[2] == player && board[4] == player )||
+    (board[2] == player && board[5] == player )||
+    (board[2] == player && board[6] == player )||
+    (board[2] == player && board[8] == player )||
+
+    (board[3] == player && board[4] == player )||
+    (board[3] == player && board[5] == player )||
+    (board[3] == player && board[6] == player )||
+
+    (board[4] == player && board[5] == player )||
+    (board[4] == player && board[6] == player )||
+    (board[4] == player && board[7] == player )||
+    (board[4] == player && board[8] == player )||
+
+    (board[5] == player && board[8] == player )||
+
+    (board[6] == player && board[7] == player )||
+    (board[6] == player && board[8] == player )||
+
+    (board[7] == player && board[8] == player )
   ) {
     return true;
   } else {
