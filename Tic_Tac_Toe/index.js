@@ -164,8 +164,9 @@ function minimax(reboard, player) {
     }
     reboard[array[i]] = move.index;
     moves.push(move);
+    // console.log('moves', moves);
   }
-
+  
   var bestMove;
   if (player === aiPlayer) {
     var bestScore = -10000;
@@ -184,6 +185,7 @@ function minimax(reboard, player) {
       }
     }
   }
+  
   return moves[bestMove];
 }
 

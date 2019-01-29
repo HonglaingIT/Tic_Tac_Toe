@@ -55,7 +55,7 @@ p {
   button {
     height: 50px;
     width: 100px;
-    font-size: 200%;
+    font-size: 2em;
     border:5px solid gray;
     border-radius: 15px;
     background:#f7aeb7;
@@ -78,7 +78,7 @@ p {
     position:absolute;
     left:50%;
     margin-left:-150px;
-    top:25%;
+    top:150px;
   }
   body{
     width:100%;
