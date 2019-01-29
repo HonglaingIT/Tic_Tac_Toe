@@ -117,10 +117,10 @@ function move(element, player, color) {
 
           else if (board[1] == huPlayer && board[2] == huPlayer &&board[0]==0){
             index = 0;
-          }else if (board[1] == huPlayer && board[2] == huPlayer &&board[0]==0){
-            index = 0;
-          }else if (board[1] == huPlayer && board[2] == huPlayer &&board[0]==0){
-            index = 0;
+          }else if (board[1] == huPlayer && board[4] == huPlayer &&board[7]==7){
+            index = 7;
+          }else if (board[1] == huPlayer && board[7] == huPlayer &&board[4]==4){
+            index = 4;
           }
          
           else if (board[2] == huPlayer && board[4] == huPlayer &&board[6]==6){
@@ -170,6 +170,7 @@ function move(element, player, color) {
             var ava = avail(board);
            index = ava[Math.floor(Math.random() * ava.length)]; 
           }
+
       var selector = "#" + index;
       $(selector).css("background-color", aiCo);
       board[index] = aiPlayer;
