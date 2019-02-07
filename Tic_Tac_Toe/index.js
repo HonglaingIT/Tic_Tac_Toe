@@ -82,8 +82,8 @@ function move(element, player, color) {
       return;
     } else {
       
-      console.log('fuckxkckckckcck',gameStyle);
-      console.log('rounds' , round);
+      console.log('gamestyle: ',gameStyle);
+      console.log('rounds: ' , round);
       if (gameStyle=="PVC_GOD"){
       round++;
       var index = minimax(board, aiPlayer).index;
@@ -94,10 +94,78 @@ function move(element, player, color) {
       console.log(index);
     }
 
-     else if (gameStyle=="PVC_EASY"){
+      if (gameStyle=="PVC_EASY"){
        round++;
        console.log('rounds' , round);
         var index;
+        if (winningPromt(board,aiPlayer)){
+          if (board[0] == aiPlayer && board[1] == aiPlayer &&board[2]==2){
+            index = 2;
+          }
+          else if (board[0] == aiPlayer && board[2] == aiPlayer &&board[1]==1){
+            index = 1;
+          }
+          else if (board[0] == aiPlayer && board[3] == aiPlayer &&board[6]==6){
+            index = 6;
+          }else if (board[0] == aiPlayer && board[4] == aiPlayer &&board[8]==8){
+            index = 8;
+          }else if (board[0] == aiPlayer && board[6] == aiPlayer &&board[3]==3){
+            index = 3;
+          }else if (board[0] == aiPlayer && board[8] == aiPlayer &&board[4]==4){
+            index = 4;
+          }
+
+          else if (board[1] == aiPlayer && board[2] == aiPlayer &&board[0]==0){
+            index = 0;
+          }else if (board[1] == aiPlayer && board[4] == aiPlayer &&board[7]==7){
+            index = 7;
+          }else if (board[1] == aiPlayer && board[7] == aiPlayer &&board[4]==4){
+            index = 4;
+          }
+         
+          else if (board[2] == aiPlayer && board[4] == aiPlayer &&board[6]==6){
+            index = 6;
+          }
+          else if (board[2] == aiPlayer && board[5] == aiPlayer &&board[8]==8){
+            index = 8;
+          }else if (board[2] == aiPlayer && board[6] == aiPlayer &&board[4]==4){
+            index = 4;
+          }else if (board[2] == aiPlayer && board[8] == aiPlayer &&board[5]==5){
+            index = 5;
+          }
+          
+          else if (board[3] == aiPlayer && board[4] == aiPlayer &&board[5]==5){
+            index = 5;
+          } else if (board[3] == aiPlayer && board[5] == aiPlayer &&board[4]==4){
+            index = 4;
+          } else if (board[3] == aiPlayer && board[6] == aiPlayer &&board[0]==0){
+            index = 0;
+          } 
+
+          else if (board[4] == aiPlayer && board[5] == aiPlayer &&board[3]==3){
+            index = 3;
+          } else if (board[4] == aiPlayer && board[6] == aiPlayer &&board[2]==2){
+            index = 2;
+          } else if (board[4] == aiPlayer && board[7] == aiPlayer &&board[1]==1){
+            index = 1;
+          } else if (board[4] == aiPlayer && board[8] == aiPlayer &&board[0]==0){
+            index = 0;
+          } 
+
+          else if (board[5] == aiPlayer && board[8] == aiPlayer &&board[2]==2){
+            index = 2;
+          }
+
+          else if (board[6] == aiPlayer && board[8] == aiPlayer &&board[7]==7){
+            index = 7;
+          }else if (board[6] == aiPlayer && board[7] == aiPlayer &&board[8]==8){
+            index = 8;
+          }
+
+          else if (board[7] == aiPlayer && board[8] == aiPlayer &&board[6]==6){
+            index = 6;
+          }
+        }
         if (winningPromt(board,huPlayer)){
           if (board[0] == huPlayer && board[1] == huPlayer &&board[2]==2){
             index = 2;
@@ -111,7 +179,7 @@ function move(element, player, color) {
             index = 8;
           }else if (board[0] == huPlayer && board[6] == huPlayer &&board[3]==3){
             index = 3;
-          }else if (board[0] == huPlayer && board[8] == huPlayer &&board[1]==1){
+          }else if (board[0] == huPlayer && board[8] == huPlayer &&board[4]==4){
             index = 4;
           }
 
@@ -166,7 +234,8 @@ function move(element, player, color) {
             index = 6;
           }
 
-        }else {
+        }
+        else {
             var ava = avail(board);
            index = ava[Math.floor(Math.random() * ava.length)]; 
           }
