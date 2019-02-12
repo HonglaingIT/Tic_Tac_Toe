@@ -4,16 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Tic Tac Toe</title>
-  
-  
+  <link rel="icon" type="image/png" href="logo.png"/>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
-
-      <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 
   
 </head>
 
 <body>
+    <!--Reset button(i going to change the style)-->
    <div class="button"> <button  onclick="resetAll()">Reset</button></div>
   <table>
     <tr>
@@ -32,31 +32,26 @@
         <td class = "cell" id = "8"></td>
     </tr>
 </table>
-<div class="selector">
-    <h2>Tic Tac Toe </h2>
-    <h2>Choose Game Type</h2>
-    <fieldset id="group1">
-        <input type="radio" name="group1" value="PVC_GOD" checked="checked">PVC (God)
-        <input type="radio" name="group1" value="PVP"> PVP
-        <input type="radio" name="group1" value="PVC_EASY">PVC (Easy)
-     </fieldset>
-    </div>
-<p>choose player</p>
-<div class = "guys">
-  <div class= "dots">
-  </div> 
+<div class="selector"> <!--change class name-->
+    <div id="title"><span class="firstw">TIC</span> <span class="secondw">TAC</span> <span class="thirdw">TOE</span></div>
+    <h2>Chose your game</h2>
 
-  <div class= "dots2">
-  </div>
+    <fieldset>
+        <div class="radioGroup">
+           <input type="radio" id="option-one" name="group1" value="PVC_GOD"  checked="checked"><label for="option-one">Impossible</label>
+           <input type="radio" id="option-two" name="group1" value="PVP" ><label for="option-two" >PVP</label>
+           <input type="radio" id="option-three" name="group1" value="PVC_EASY"><label for="option-three">Easy</label>
+        </div>
+    </fieldset>
+</div>    
+    
+<p>Pick your Color!</p>
+<div class = "guys">
+  <div class= "dots"></div> 
+  <div class= "dots2"></div>
 </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-
-  
-
-    <script  src="index.js"></script>
-
-
-
+  <script  src="index.js"></script>
 
 </body>
 
