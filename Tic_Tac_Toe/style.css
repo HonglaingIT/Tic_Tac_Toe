@@ -1,13 +1,18 @@
+*{
+  font-family: Monospace,sans-serif;
+}
+
 p {
-  margin-left:-160px;
-  margin-top: 10px;
+  margin-left:-25px;
+  /* margin-top: 50px; */
+  /* padding-top: 20px; */
   position:absolute;
   font-size: 40px;
   width:410px;
-  left:50%; 
-  top: 150PX;
-  margin-top: 40px;
-  font-family:  'Montserrat', sans-serif;
+  /* left:50%;  */
+  /* top: 150PX; */
+  margin-top: -50px;
+  /* font-family:  'Montserrat', sans-serif; */
   color: #79BD9A;
 }
 .selector{
@@ -19,27 +24,29 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family:  'Montserrat', sans-serif;
+  /* font-family:  'Montserrat', sans-serif; */
   
 }
 .dots{
   display:inline-block;
   background:white;
-  height:80px;
-  width:80px;
+  height:100px;
+  width:100px;
   float: left;
   border: 5px solid #3B8686;
   cursor: pointer;
+  margin-top: 40px;
 }
 .dots:hover{
   box-shadow:   0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   
 }
 .dots2{
+  margin-top: 40px;
   display:inline-block;
   background:black;
-  height:80px;
-  width:80px;
+  height:100px;
+  width:100px;
   float: right;
   border: 5px solid #3B8686;
   cursor: pointer;
@@ -51,7 +58,7 @@ p {
 
 .guys{
   position:absolute;
-  height:100px;
+  height:250px;
   width:350px;
   top:250px;
   left:50%;
@@ -75,11 +82,10 @@ button {
   font-size: 2em;
   color: white;
   font-weight: bold;
-  border:0px solid gray;
+  border:0px solid #3B8686;
   border-radius: 15px;
-  font-family: 'Montserrat', sans-serif;
   align-content: center;
-  background-color:#3B8686;
+  background-color:#3B8686;   
   
 }
 
@@ -90,7 +96,6 @@ position: absolute;
 display: flex;
 flex-direction:row;
 justify-content: center;
-background:#f7aeb7;
 visibility: hidden;
 }
 
@@ -111,7 +116,7 @@ body{
   #title{
     color: rgb(196, 213, 226);
     text-align: center;
-    font-family:  'Montserrat', sans-serif;
+    /* font-family:  'Montserrat', sans-serif; */
     font-size: 60px;
     font-weight: 400;
   }
@@ -136,7 +141,7 @@ body{
    }  
    h2{
      font-size: 35px;
-      color: #3B8686;
+      color: #79BD9A;
       margin: 5px;
     }
     
