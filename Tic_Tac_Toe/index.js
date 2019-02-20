@@ -67,9 +67,9 @@ function move(element, player, color) {
 
     if (winning(board, player)) {
       setTimeout(function() {
-        alert("YOU WIN PLAYER "+color);
+        alert("YOU WIN PLAYER "+color.toUpperCase());
         reset();
-      }, 000);
+      }, 150);
       return;
     } else if (round > 8) {
       setTimeout(function() {
@@ -78,7 +78,7 @@ function move(element, player, color) {
         reset();}
         else 
           reset();
-      }, 000);
+      }, 150);
       return;
     } else {
       
@@ -253,13 +253,13 @@ function move(element, player, color) {
         setTimeout(function() {
           alert("YOU LOSE");
           reset();
-        }, 500);
+        }, 150);
         return;
       } else if (round === 0) {
         setTimeout(function() {
-          alert("tie");
+          alert("Tie");
           reset();
-        }, 500);
+        }, 150);
         return;
       }
     }
